@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+
+    overflow-x:Scroll;
+    overflow-y:hidden;
+}
+
+.box {
+    float: left;
+    margin-top: 2.5vw;
+    margin-left: 2.5vw;
+    border-radius: 20px;
+
+    width: 30vw;
+    height: 30vw;
+
+    background-color: rgb(254,165,0);
+}
+
+.toggle {
+    margin: 0 auto;
+    width: 80vw;
+}
+
+button {
+    margin-top: 5vw;
+    border-radius: 10px;
+    width: 80vw;
+    height: 10vw;
+    outline: none;
+    border: 1.5px solid #fea500;
+    background: #fff;
+    color: #fea500;
+}
+
+button:hover {
+    color: #fff;
+    background: #fea500;
+}
