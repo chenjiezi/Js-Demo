@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css">
+    <title>注册</title>
+</head>
+<body>
+    <div class="wrap wrap-sm">
+        <div class="header">
+            <h1>注册</h1>
+        </div>
+        <div class="form">
+            <form id="signup">
+                <div class="input-wrap">
+                    <label for="">姓名</label>
+                    <input name="name" data-rule="maxlength:3|minlength:2" type="text" class="input-control">
+                    <div id="name-input-error" class="input-error">姓名格式有误!</div>
+                </div>
+                <div class="input-wrap">
+                    <label for="">用户名</label>
+                    <input name="username" data-rule='pattern:"^[a-zA-Z0-9]*$"|maxlength:18|minlength:4' type="text" class="input-control">
+                    <div id="username-input-error" class="input-error">由4-18个大小字母或数字组成！</div>
+                </div>
+                <div class="input-wrap">
+                    <label for="">年龄</label>
+                    <input name="age" data-rule="min:18"  type="text" class="input-control">
+                    <div id="age-input-error" class="input-error">年龄不得低于18!</div>
+                </div>
+                <div class="input-wrap">
+                    <label for="">密码</label>
+                    <input name="password" data-rule="maxlength:12|minlength:6" type="password" class="input-control">
+                    <div id="password-input-error" class="input-error">密码由6-12个数组成!</div>
+                </div>
+                <div class="input-wrap">
+                    <label for="">自我介绍</label>
+                    <input name="intro" data-rule="required:false|maxlength:140" type="text" class="input-control">
+                    <div id="intro-input-error" class="input-error">不得超过140个字！</div>
+                </div>
+                <button class="submit" type="submit" >注册</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
