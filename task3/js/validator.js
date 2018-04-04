@@ -1,10 +1,14 @@
 // 不污染全局变量
 // 原生js写法:  ;()();
 
+// 思路：1.先定义validator验证器；2.写验证规则；3.写一个方法验证全部的规则是否合法
+
 
 $(function() {
+    // 严格模式
     'use strict';
 
+    // 验证器
     window.Validator = function(val, rule) {
 
         // {
@@ -15,12 +19,16 @@ $(function() {
         this.is_valid = function (new_val) {
             var key;
 
-            // 因为是严格模式，所以是undefined
             // 有个坑
+            // 当有数一个合法的值，之后又删除，输入另外一个值无论是否合法，验证器会默认第一个输入的值。
+            // 这样的后果会产生bug。当输入一个合法的值，然后再删除，点击注册，会通过验证。       
+            // val = new_val || val;
+
+            // 因为是严格模式，所以是undefined
             if(new_val !== undefined)
             val = new_val;
-
-
+            
+            
             // 如果不是必填项 且 值为空 直接pass
             // 不同满足两个条件就得进行下面的程序
             if(!rule.required && !val)

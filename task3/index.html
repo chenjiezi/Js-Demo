@@ -27,8 +27,9 @@
                 </div>
                 <div class="input-wrap">
                     <label for="">年龄</label>
-                    <input name="age" data-rule="min:18"  type="text" class="input-control">
-                    <div id="age-input-error" class="input-error">年龄不得低于18!</div>
+                    <!-- 为什么不可以先验证是否是不是大于18的数值，再验证是否为数值 -->
+                    <input name="age" data-rule="numeric:true|min:18"  type="text" class="input-control">
+                    <div id="age-input-error" class="input-error">年龄不得低于18</div>
                 </div>
                 <div class="input-wrap">
                     <label for="">密码</label>
