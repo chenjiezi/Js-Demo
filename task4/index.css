@@ -2,9 +2,11 @@
  * @Author: chenjiezi 
  * @Date: 2018-05-11 14:44:27 
  * @Last Modified by: chenjiezi
- * @Last Modified time: 2018-05-11 23:43:36
+ * @Last Modified time: 2018-05-11 23:57:03
  */
-
+body{
+    font-family: "Open Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+}
 *{
     /* 不可选中 */
     user-select: none;
