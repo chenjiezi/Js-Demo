@@ -1,4 +1,4 @@
-javascript demo
+DEMO
 --
 
 - [闪烁九宫格](https://chenjiezi.github.io/Js-Demo/task1/index.html)    
