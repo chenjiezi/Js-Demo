@@ -19,7 +19,7 @@
     1. 外层：浏览器的事件 -> 调用方法 -> 事件处理函数的绑定
     2. 操作数据：addTodo、 removeTodo、toggleComplete
     3. 操作DOM：addItem、 removeItem、 changeCompleted
-    4. 管理模板：todoView -> 接收参数
+    4. 管理模板：todoView、createItem
 
 ---
 
