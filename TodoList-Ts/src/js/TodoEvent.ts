@@ -1,23 +1,26 @@
 import TodoDom from "./TodoDom";
+import { getTodoList, removeTodo, toggleCompleted, addTodo } from "./TodoService";
 import { ITodoData } from "./typings";
 
 class TodoEvent extends TodoDom {
   private todoData: ITodoData[];
 
-  constructor (todoData: ITodoData[], todoWarpper: HTMLElement) {
+  constructor (todoWarpper: HTMLElement) {
     super(todoWarpper);
-    this.todoData = todoData;
     
-    this.init(); // 初始化列表
+    this.init(this.todoData); // 初始化列表
   }
 
-  private init () {
+  @getTodoList
+  private init (todoData: ITodoData[]) {
+    this.todoData = todoData;
     this.initList(this.todoData);
   }
 
+  @addTodo
   public addTodo (todo: ITodoData): undefined | number {
     const  _todo = this.todoData.find((item: ITodoData) => item.content === todo.content);
-
+    
     if  (!_todo) {
       this.todoData.push(todo);
       this.addItem(todo);
@@ -27,12 +30,14 @@ class TodoEvent extends TodoDom {
     return 1001; // 禁止添加重复数据: 1001
   }
 
-  public removeTodo (target: HTMLElement,id: number): void {
+  @removeTodo
+  public removeTodo (target: HTMLElement,id: string): void {
     this.todoData = this.todoData.filter((todo: ITodoData) => todo.id !== id);
     this.removeItem(target);
   }
 
-  public toggleCompleted (target: HTMLElement, id: number): void {
+  @toggleCompleted
+  public toggleCompleted (target: HTMLElement, id: string): void {
     this.todoData = this.todoData.map((todo: ITodoData) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
