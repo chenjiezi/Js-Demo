@@ -7,25 +7,7 @@ import TodoEvent from './js/TodoEvent';
   const oAddBtn: HTMLButtonElement = document.querySelector('button');
   const oTodoList: HTMLElement = document.querySelector('.todo-list');
 
-  const todoData: ITodoData[] = [
-    {
-      id: 1,
-      content: '123',
-      completed: false
-    },
-    {
-      id: 1,
-      content: '456',
-      completed: true
-    },
-    {
-      id: 3,
-      content: '321',
-      completed: false
-    }
-  ];
-  
-  const todoEvent: TodoEvent = new TodoEvent(todoData, oTodoList);
+  const todoEvent: TodoEvent = new TodoEvent(oTodoList);
 
   const init = (): void => {
     bindEvent();
@@ -41,11 +23,11 @@ import TodoEvent from './js/TodoEvent';
 
     if (val.length) {
       const ret = todoEvent.addTodo(<ITodoData>{
-        id: Date.now(),
+        id: Date.now().toString(),
         content: val,
         completed: false
       });
-      
+      // TODO: ret 没有返回值？？？？
       if (ret && ret === 1001) {
         alert('列表项已存在');
         return;
@@ -60,7 +42,7 @@ import TodoEvent from './js/TodoEvent';
     const tarName = tar.tagName.toLowerCase();
 
     if (tarName === 'input' || tarName === 'button') {
-      const id = parseInt(tar.dataset.id);
+      const id = tar.dataset.id;
       switch (tarName) {
         case 'input':
           todoEvent.toggleCompleted(tar, id);
